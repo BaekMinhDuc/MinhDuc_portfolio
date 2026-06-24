@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #eef8ff;
+  --foreground: #0f2742;
 }
 
 @theme inline {
@@ -12,15 +14,91 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #03111f;
+  --foreground: #dbeafe;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 
 body {
-  background: var(--background);
+  background:
+    linear-gradient(180deg, rgba(239, 249, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 42%, rgba(224, 242, 254, 0.9) 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.dark body {
+  background:
+    linear-gradient(180deg, rgba(3, 17, 31, 1) 0%, rgba(5, 31, 52, 1) 48%, rgba(2, 18, 31, 1) 100%);
+}
+
+button,
+a,
+input,
+textarea {
+  letter-spacing: 0;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.28);
+  color: inherit;
+}
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+.hero-gradient {
+  background:
+    linear-gradient(115deg, rgba(125, 211, 252, 0.38), transparent 38%, rgba(147, 197, 253, 0.28) 68%, transparent),
+    linear-gradient(180deg, #eff9ff 0%, #ffffff 52%, #e0f2fe 100%);
+  background-size: 220% 220%, auto;
+  animation: gradient-shift 18s ease-in-out infinite;
+}
+
+.dark .hero-gradient {
+  background:
+    linear-gradient(115deg, rgba(14, 165, 233, 0.18), transparent 36%, rgba(34, 211, 238, 0.13) 70%, rgba(59, 130, 246, 0.1)),
+    linear-gradient(180deg, #03111f 0%, #051f34 56%, #02121f 100%);
+  background-size: 220% 220%, auto;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 45%, center;
+  }
+  50% {
+    background-position: 100% 55%, center;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-padding {
+    padding: 4.5rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -34,3 +34,19 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Chay website
+
+Kich hoat moi truong Python tu thu muc workspace:
+
+```powershell
+cd D:\Code\CodePython
+.\.venv\Scripts\Activate.ps1
+cd .\ngo-minh-duc-portfolio
+npm run dev
+```
+
+Mo website tren may hien tai tai `http://localhost:3000`.
+May khac trong cung mang co the mo `http://100.125.6.51:3000`.
+
+Sau khi thay doi `next.config.ts`, hay dung server bang `Ctrl+C` va chay lai
+`npm run dev`.
