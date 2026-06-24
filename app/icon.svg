@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0ea5e9" />
+      <stop offset="0.48" stop-color="#2563eb" />
+      <stop offset="1" stop-color="#03111f" />
+    </linearGradient>
+    <linearGradient id="chip" x1="18" y1="16" x2="48" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f8fafc" />
+      <stop offset="1" stop-color="#bae6fd" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)" />
+  <path
+    d="M19 26.5V20a4 4 0 0 1 4-4h18a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H23a4 4 0 0 1-4-4v-6.5"
+    fill="none"
+    stroke="url(#chip)"
+    stroke-linecap="round"
+    stroke-width="4"
+  />
+  <path
+    d="M14 26.5h10M14 37.5h10M40 12v8M30 12v8M40 44v8M30 44v8M45 28h7M45 36h7"
+    fill="none"
+    stroke="#dbeafe"
+    stroke-linecap="round"
+    stroke-width="3"
+  />
+  <circle cx="24" cy="26.5" r="3" fill="#f8fafc" />
+  <circle cx="24" cy="37.5" r="3" fill="#f8fafc" />
+  <circle cx="40" cy="32" r="3.5" fill="#f8fafc" />
+  <path
+    d="M24 26.5 40 32 24 37.5"
+    fill="none"
+    stroke="#e0f2fe"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="3"
+  />
+  <text
+    dominant-baseline="middle"
+    fill="#03111f"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="14"
+    font-weight="700"
+    text-anchor="middle"
+    x="32"
+    y="35"
+  >
+    AI
+  </text>
+</svg>

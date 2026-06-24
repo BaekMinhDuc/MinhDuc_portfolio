@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://beakminhduc.vercel.app"),
   title: "beakminhduc | AI Engineer & AI Researcher",
   applicationName: "beakminhduc",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: "/icon.svg",
+  },
   description:
     "Portfolio of Ngo Pham Minh Duc, AI Engineer and AI Researcher focused on applied Machine Learning, Computer Vision, Speech AI, model optimization, and Edge AI deployment.",
   keywords: [
