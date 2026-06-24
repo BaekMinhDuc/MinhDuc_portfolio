@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 
 type SectionHeaderProps = {
-  number: string;
   eyebrow: string;
   title: string;
   description?: string;
@@ -25,7 +24,6 @@ export const staggerContainer = {
 };
 
 export function SectionHeader({
-  number,
   eyebrow,
   title,
   description,
@@ -45,13 +43,13 @@ export function SectionHeader({
         variants={fadeUp}
         className={`mb-5 flex items-center gap-3 ${isCenter ? "justify-center" : ""}`}
       >
-        <span className="font-mono text-base font-semibold text-sky-600 sm:text-lg dark:text-sky-300">
-          ( {number} )
-        </span>
-        <span className="h-px w-14 bg-gradient-to-r from-sky-400 via-blue-500 to-sky-400" />
+        <span className="h-px w-14 bg-gradient-to-r from-transparent via-sky-500 to-blue-500" />
         <span className="text-base font-semibold uppercase text-slate-600 sm:text-lg dark:text-slate-300">
           {eyebrow}
         </span>
+        {isCenter ? (
+          <span className="h-px w-14 bg-gradient-to-r from-blue-500 via-sky-500 to-transparent" />
+        ) : null}
       </motion.div>
       <motion.h2
         variants={fadeUp}

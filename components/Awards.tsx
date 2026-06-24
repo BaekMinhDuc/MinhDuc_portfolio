@@ -10,7 +10,6 @@ export function Awards() {
     <section id="awards" className="section-padding bg-sky-50/70 dark:bg-sky-950/20">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <SectionHeader
-          number="05"
           eyebrow="Awards & Certifications"
           title="Awards & Certifications"
           description="Awards and certificates showing applied AI momentum across international AI applications, embedded systems, and student research conferences."

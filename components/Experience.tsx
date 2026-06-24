@@ -10,7 +10,6 @@ export function Experience() {
     <section id="experience" className="section-padding bg-sky-50/70 dark:bg-sky-950/20">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <SectionHeader
-          number="02"
           eyebrow="Experience"
           title="AI Work & Research Experience"
           description="A timeline of AI internships and research roles focused on practical computer vision, surveillance intelligence, optimization, and AIoT prototypes."
