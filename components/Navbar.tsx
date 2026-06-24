@@ -15,25 +15,61 @@ export function Navbar() {
       .map((item) => document.getElementById(item.id))
       .filter(Boolean) as HTMLElement[];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!sections.length) {
+      return;
+    }
 
-        if (visible?.target.id) {
-          setActiveId(visible.target.id);
+    let frameId: number | null = null;
+
+    const updateActiveSection = () => {
+      const navOffset = 112;
+      const scrollPosition = window.scrollY + navOffset;
+      const viewportBottom = window.scrollY + window.innerHeight;
+      const pageBottom = document.documentElement.scrollHeight - 2;
+
+      if (viewportBottom >= pageBottom) {
+        setActiveId(sections[sections.length - 1].id);
+        return;
+      }
+
+      let currentId = sections[0].id;
+
+      for (const section of sections) {
+        if (section.offsetTop <= scrollPosition) {
+          currentId = section.id;
+        } else {
+          break;
         }
-      },
-      {
-        rootMargin: "-20% 0px -65% 0px",
-        threshold: [0.15, 0.35, 0.55],
-      },
-    );
+      }
 
-    sections.forEach((section) => observer.observe(section));
+      setActiveId(currentId);
+    };
 
-    return () => observer.disconnect();
+    const requestUpdate = () => {
+      if (frameId !== null) {
+        return;
+      }
+
+      frameId = window.requestAnimationFrame(() => {
+        frameId = null;
+        updateActiveSection();
+      });
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("hashchange", requestUpdate);
+
+    return () => {
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      window.removeEventListener("hashchange", requestUpdate);
+    };
   }, []);
 
   return (
@@ -42,7 +78,12 @@ export function Navbar() {
         className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8"
         aria-label="Primary navigation"
       >
-        <a href="#home" aria-label="Ngo Pham Minh Duc home" className="group flex items-center gap-3">
+        <a
+          href="#home"
+          aria-label="Ngo Pham Minh Duc home"
+          onClick={() => setActiveId("home")}
+          className="group flex items-center gap-3"
+        >
           <span className="grid size-11 place-items-center rounded-lg bg-sky-950 text-sm font-bold text-white shadow-lg shadow-sky-500/20 dark:bg-sky-100 dark:text-sky-950">
             ND
           </span>
@@ -59,6 +100,7 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
+              onClick={() => setActiveId(item.id)}
               className={`rounded-full px-3 py-2 text-sm font-semibold transition ${
                 activeId === item.id
                   ? "bg-sky-500/10 text-sky-700 dark:text-sky-200"
@@ -106,7 +148,10 @@ export function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setActiveId(item.id);
+                    setIsOpen(false);
+                  }}
                   className={`rounded-lg px-4 py-3 text-sm font-semibold transition ${
                     activeId === item.id
                       ? "bg-sky-500/10 text-sky-700 dark:text-sky-200"

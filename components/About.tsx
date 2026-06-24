@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, GraduationCap, Languages } from "lucide-react";
+import { BookOpen, GraduationCap } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 import { fadeUp, SectionHeader, staggerContainer } from "./SectionHeader";
 import { SkillCard } from "./SkillCard";
@@ -49,28 +49,6 @@ export function About() {
               <BookOpen size={16} aria-hidden="true" />
               {portfolio.education.focus}
             </p>
-
-            <div className="mt-8 border-t border-slate-200 pt-6 dark:border-white/10">
-              <div className="mb-4 flex items-center justify-center gap-2 text-sm font-semibold text-slate-800 dark:text-slate-100">
-                <Languages size={18} aria-hidden="true" />
-                English
-              </div>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {portfolio.languages.map((language) => (
-                  <div
-                    key={language.name}
-                    className="rounded-lg border border-slate-200 p-4 dark:border-white/10"
-                  >
-                    <p className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">
-                      {language.name}
-                    </p>
-                    <p className="mt-1 text-2xl font-semibold text-slate-950 dark:text-white">
-                      {language.score}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </motion.article>
 
           <motion.div

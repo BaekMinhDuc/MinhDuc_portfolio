@@ -8,7 +8,6 @@ import {
   Cpu,
   Eye,
   GraduationCap,
-  Languages,
   Mail,
   Mic,
   Network,
@@ -47,11 +46,6 @@ export type Education = {
   period: string;
   cpa: string;
   focus: string;
-};
-
-export type LanguageScore = {
-  name: string;
-  score: string;
 };
 
 export type SkillGroup = {
@@ -196,10 +190,6 @@ export const portfolio = {
     cpa: "CPA: 3.0/4.0",
     focus: "Smart Embedded Systems & IoT",
   } satisfies Education,
-  languages: [
-    { name: "IELTS", score: "6.5" },
-    { name: "TOEIC", score: "800" },
-  ] satisfies LanguageScore[],
   skillGroups: [
     {
       title: "Programming Languages",
@@ -218,7 +208,7 @@ export const portfolio = {
       ],
     },
     {
-      title: "Frameworks/Tools",
+      title: "Frameworks & Tools",
       icon: Rocket,
       skills: [
         "PyTorch",
@@ -244,36 +234,46 @@ export const portfolio = {
   research: [
     {
       title: "Civil Intelligent Sensing System",
-      focus: "43rd HUST Student Research Conference | 05/2026",
+      focus: "43rd HUST Student Scientific Research Conference | 05/2026",
       description:
-        "Built a real-time multi-camera traffic monitoring system on Jetson AGX Orin using optimized VLM, person search, and parallel AI pipelines, achieving 15-20 FPS across 60 streams on edge devices.",
-      tags: ["Jetson AGX Orin", "Optimized VLM", "Person Search", "60 Streams", "15-20 FPS"],
+        "Built a real-time urban monitoring system across multiple cameras on Jetson AGX Orin, using VLMs, attribute-based person search, and parallel AI pipelines, achieving 15-20 FPS across 60 cameras on edge devices.",
+      tags: ["Jetson AGX Orin", "VLMs", "Attribute-based Person Search", "60 Cameras", "15-20 FPS"],
       icon: Eye,
     },
     {
       title: "Voice2Text",
-      focus: "43rd HUST Student Research Conference | 05/2026",
+      focus: "43rd HUST Student Scientific Research Conference | 05/2026",
       description:
-        "Developed a Vietnamese Voice-to-Text system using state-of-the-art ASR models, supporting speaker recognition and diarization, optimized for real-time inference on edge devices from microphone input.",
+        "Developed a Vietnamese Voice-to-Text system using state-of-the-art automatic speech recognition models, supporting speaker recognition and speaker diarization, optimized for real-time inference on edge devices from live microphone input.",
       tags: ["Vietnamese ASR", "Speaker Recognition", "Speaker Diarization", "Edge Inference"],
       icon: Mic,
     },
     {
       title: "Multi-Camera Face Detection on CPU-Only Systems",
-      focus: "42nd HUST Student Research Conference | 05/2025",
+      focus: "42nd HUST Student Scientific Research Conference | 05/2025",
       description:
-        "Optimized a multi-camera AI system for face detection by compressing the YOLOv3 model and improving the video decoding pipeline, enabling real-time processing of 12 camera streams at 10 FPS using CPU only.",
+        "Optimized a multi-camera AI system for face detection by compressing the YOLOv3 model and improving the video decoding pipeline, enabling real-time processing of 12 camera streams at 10 FPS on CPU.",
       tags: ["YOLOv3 Compression", "CPU-only Inference", "12 Camera Streams", "10 FPS"],
       icon: ShieldCheck,
     },
   ] satisfies ResearchItem[],
   awards: [
     {
+      title: "43rd HUST Student Research Conference",
+      date: "05/2026",
+      achievement: "First Prize - AI Applications Track",
+      project: "Civil Intelligent Sensing System",
+      description:
+        "Won First Prize in the AI Applications Track with the project Civil Intelligent Sensing System.",
+      icon: Award,
+    },
+    {
       title: "Best AI Award Taiwan 2026",
       date: "04/2026",
-      achievement: "Finalist - AI Applications Track",
+      achievement: "Finalist - International AI Applications Track",
+      project: "Civil Intelligent Sensing System",
       description:
-        "Selected as Top 10 in the International AI Applications Company Track with the project Civil Intelligent Sensing System.",
+        "Selected as a finalist in the International AI Applications Track with the project Civil Intelligent Sensing System.",
       icon: Trophy,
     },
     {
@@ -322,7 +322,7 @@ export const portfolio = {
   ] satisfies ContactLink[],
   quickFacts: [
     { label: "Degree", value: "Electronics & Telecommunications", icon: GraduationCap },
-    { label: "English", value: "IELTS 6.5 / TOEIC 800", icon: Languages },
+    { label: "Research", value: "HUST Student Scientific Research", icon: Sparkles },
     { label: "Focus", value: "Smart Embedded Systems & IoT", icon: Sparkles },
     { label: "Current", value: "AI Intern and AI Researcher", icon: BadgeCheck },
   ],
