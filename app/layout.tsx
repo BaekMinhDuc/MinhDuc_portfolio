@@ -14,7 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ngo Pham Minh Duc | AI Engineer & AI Researcher",
+  metadataBase: new URL("https://beakminhduc.vercel.app"),
+  title: "beakminhduc | AI Engineer & AI Researcher",
+  applicationName: "beakminhduc",
   description:
     "Portfolio of Ngo Pham Minh Duc, AI Engineer and AI Researcher focused on applied Machine Learning, Computer Vision, Speech AI, model optimization, and Edge AI deployment.",
   keywords: [
@@ -30,9 +32,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Ngo Pham Minh Duc", url: "mailto:mcminhduc2004@gmail.com" }],
   creator: "Ngo Pham Minh Duc",
   openGraph: {
-    title: "Ngo Pham Minh Duc | AI Engineer & AI Researcher",
+    title: "beakminhduc | AI Engineer & AI Researcher",
     description:
       "AI Engineer and AI Researcher focused on applied Machine Learning, Computer Vision, Speech AI, model optimization, and Edge AI deployment.",
+    url: "https://beakminhduc.vercel.app",
+    siteName: "beakminhduc",
     type: "website",
     locale: "en_US",
   },
