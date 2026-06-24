@@ -26,7 +26,6 @@ export function Contact() {
     <section id="contact" className="section-padding">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Contact me"
           title="Contact & Collaboration"
           description="Reach out for AI engineering opportunities, research collaborations, scholarships, conference work, or real-time AI deployment projects."
           align="center"

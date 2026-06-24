@@ -9,7 +9,6 @@ export function AcademicResearch() {
     <section id="research" className="section-padding">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Academic Research"
           title="Conference Research"
           description="Academic research projects from HUST student research conferences, built around multi-camera monitoring, Vietnamese speech AI, and CPU-only face detection."
           align="center"

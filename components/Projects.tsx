@@ -10,7 +10,6 @@ export function Projects() {
     <section id="projects" className="section-padding bg-sky-50/70 dark:bg-sky-950/20">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Technical Projects"
           title="Technical AI Projects"
           description="Technical project work focused on object detection, face recognition, model compression, and edge AI deployment for real-time multi-camera systems."
           align="center"

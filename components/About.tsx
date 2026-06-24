@@ -11,7 +11,6 @@ export function About() {
     <section id="about" className="section-padding">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="About me"
           title="Education, Skills & Applied AI"
           description={portfolio.about}
           align="center"
