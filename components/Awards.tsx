@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BadgeCheck } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
+import { CertificateShowcase } from "./CertificateShowcase";
 import { fadeUp, SectionHeader, staggerContainer } from "./SectionHeader";
 
 export function Awards() {
@@ -20,80 +20,53 @@ export function Awards() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mt-12 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]"
+          className="mt-12 grid gap-5 lg:grid-cols-3"
         >
-          <div className="grid gap-5">
-            {portfolio.awards.map((award) => {
-              const Icon = award.icon;
+          {portfolio.awards.map((award) => {
+            const Icon = award.icon;
 
-              return (
-                <motion.article
-                  key={award.title}
-                  variants={fadeUp}
-                  className="rounded-lg border border-slate-200 bg-white/90 p-6 text-center shadow-sm dark:border-white/10 dark:bg-white/[0.04]"
-                >
-                  <div className="grid justify-items-center gap-4">
-                    <div className="grid size-12 shrink-0 place-items-center rounded-lg bg-blue-500/10 text-blue-700 dark:text-blue-300">
-                      <Icon size={23} aria-hidden="true" />
-                    </div>
-                    <div>
-                      <div className="flex flex-wrap items-center justify-center gap-3">
-                        <h3 className="text-xl font-semibold text-slate-950 dark:text-white">
-                          {award.title}
-                        </h3>
-                        <span className="rounded-full bg-sky-500/10 px-3 py-1 text-xs font-semibold text-sky-700 dark:text-sky-300">
-                          {award.date}
-                        </span>
-                      </div>
-                      <p className="mt-2 font-semibold text-blue-700 dark:text-blue-300">
-                        {award.achievement}
-                      </p>
-                      {award.project ? (
-                        <p className="mt-3 text-sm font-semibold text-slate-800 dark:text-slate-100">
-                          Project: {award.project}
-                        </p>
-                      ) : null}
-                      {award.description ? (
-                        <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-                          {award.description}
-                        </p>
-                      ) : null}
-                    </div>
+            return (
+              <motion.article
+                key={award.title}
+                variants={fadeUp}
+                whileHover={{ y: -6, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 260, damping: 24 }}
+                className="rounded-lg border border-slate-200 bg-white/90 p-6 text-center shadow-sm dark:border-white/10 dark:bg-white/[0.04]"
+              >
+                <div className="grid justify-items-center gap-4">
+                  <div className="grid size-12 shrink-0 place-items-center rounded-lg bg-blue-500/10 text-blue-700 dark:text-blue-300">
+                    <Icon size={23} aria-hidden="true" />
                   </div>
-                </motion.article>
-              );
-            })}
-          </div>
-
-          <motion.div
-            variants={fadeUp}
-            className="rounded-lg border border-slate-200 bg-white/90 p-6 text-center shadow-sm dark:border-white/10 dark:bg-white/[0.04]"
-          >
-            <h3 className="text-xl font-semibold text-slate-950 dark:text-white">Certifications</h3>
-            <div className="mt-6 grid gap-3">
-              {portfolio.certifications.map((certificate) => (
-                <div
-                  key={certificate.title}
-                  className="grid justify-items-center gap-3 rounded-lg border border-slate-200 p-4 dark:border-white/10"
-                >
-                  <BadgeCheck
-                    size={19}
-                    className="shrink-0 text-cyan-600 dark:text-cyan-300"
-                    aria-hidden="true"
-                  />
                   <div>
-                    <p className="text-sm font-semibold leading-6 text-slate-950 dark:text-white">
-                      {certificate.title}
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                      <h3 className="text-xl font-semibold text-slate-950 dark:text-white">
+                        {award.title}
+                      </h3>
+                      <span className="rounded-full bg-sky-500/10 px-3 py-1 text-xs font-semibold text-sky-700 dark:text-sky-300">
+                        {award.date}
+                      </span>
+                    </div>
+                    <p className="mt-2 font-semibold text-blue-700 dark:text-blue-300">
+                      {award.achievement}
                     </p>
-                    <p className="mt-1 text-xs font-semibold text-slate-500 dark:text-slate-400">
-                      {certificate.date}
-                    </p>
+                    {award.project ? (
+                      <p className="mt-3 text-sm font-semibold text-slate-800 dark:text-slate-100">
+                        Project: {award.project}
+                      </p>
+                    ) : null}
+                    {award.description ? (
+                      <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                        {award.description}
+                      </p>
+                    ) : null}
                   </div>
                 </div>
-              ))}
-            </div>
-          </motion.div>
+              </motion.article>
+            );
+          })}
         </motion.div>
+
+        <CertificateShowcase certificates={portfolio.featuredCertificates} />
       </div>
     </section>
   );

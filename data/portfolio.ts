@@ -82,9 +82,13 @@ export type AwardEntry = {
   icon: LucideIcon;
 };
 
-export type Certification = {
+export type FeaturedCertificate = {
   title: string;
+  issuer: string;
   date: string;
+  description: string;
+  image: string;
+  pdf: string;
 };
 
 export type ContactLink = {
@@ -285,15 +289,32 @@ export const portfolio = {
       icon: Award,
     },
   ] satisfies AwardEntry[],
-  certifications: [
+  featuredCertificates: [
     {
-      title: "43rd HUST Student Research Conference Certificate",
+      title: "First Prize Student Research Award",
       date: "05/2026",
+      issuer: "Hanoi University of Science and Technology",
+      description: "First Prize for Civil Sensing Intelligent System at the university-level student research award.",
+      image: "/certificates/research-award.jpg",
+      pdf: "/certificates/research-award.pdf",
     },
-    { title: "Best AI Award Taiwan 2026", date: "05/2026" },
-    { title: "BGSW - VN Embedded Academy Certificate", date: "10/2025" },
-    { title: "42nd Student Research Conference Certificate", date: "05/2025" },
-  ] satisfies Certification[],
+    {
+      title: "Civil Sensing Intelligent System Certificate",
+      date: "05/2026",
+      issuer: "43rd HUST Student Research Conference",
+      description: "Certificate for the Civil Sensing Intelligent System research project.",
+      image: "/certificates/civil-sensing-certificate.jpg",
+      pdf: "/certificates/civil-sensing-certificate.pdf",
+    },
+    {
+      title: "Voice Recognition on Edge Devices Certificate",
+      date: "05/2026",
+      issuer: "43rd HUST Student Research Conference",
+      description: "Certificate for efficient Vietnamese multi-speaker speech and voice recognition on edge devices.",
+      image: "/certificates/voice-recognition-certificate.jpg",
+      pdf: "/certificates/voice-recognition-certificate.pdf",
+    },
+  ] satisfies FeaturedCertificate[],
   contacts: [
     {
       label: "Email",

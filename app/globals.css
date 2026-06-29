@@ -72,6 +72,28 @@ textarea {
   background-size: 220% 220%, auto;
 }
 
+.certificate-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.certificate-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: certificate-marquee 34s linear infinite;
+  will-change: transform;
+}
+
+.certificate-track[data-direction="right"] {
+  animation-direction: reverse;
+}
+
+.certificate-marquee:hover .certificate-track,
+.certificate-marquee:focus-within .certificate-track {
+  animation-play-state: paused;
+}
+
 @keyframes gradient-shift {
   0%,
   100% {
@@ -79,6 +101,16 @@ textarea {
   }
   50% {
     background-position: 100% 55%, center;
+  }
+}
+
+@keyframes certificate-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
   }
 }
 
@@ -100,5 +132,14 @@ textarea {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .certificate-marquee {
+    overflow-x: auto;
+    mask-image: none;
+  }
+
+  .certificate-track {
+    animation: none !important;
   }
 }
