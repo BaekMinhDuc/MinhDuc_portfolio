@@ -27,7 +27,7 @@ export function Contact() {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <SectionHeader
           title="Contact & Collaboration"
-          description="Reach out for AI engineering opportunities, research collaborations, scholarships, conference work, or real-time AI deployment projects."
+          description="Open to AI Engineer roles, research collaborations, and graduate research opportunities in Computer Vision, Speech AI, and Edge AI."
           align="center"
         />
 

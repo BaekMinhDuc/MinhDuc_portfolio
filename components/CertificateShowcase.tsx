@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, ExternalLink, Sparkles } from "lucide-react";
+import { ExternalLink, Sparkles } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
 import type { FeaturedCertificate } from "@/data/portfolio";
 import { fadeUp } from "./SectionHeader";
 
@@ -12,7 +11,6 @@ type CertificateShowcaseProps = {
 };
 
 export function CertificateShowcase({ certificates }: CertificateShowcaseProps) {
-  const [direction, setDirection] = useState<"left" | "right">("left");
   const loopingCertificates = [...certificates, ...certificates];
 
   return (
@@ -20,9 +18,9 @@ export function CertificateShowcase({ certificates }: CertificateShowcaseProps) 
       variants={fadeUp}
       className="mt-8 overflow-hidden rounded-lg border border-sky-200/80 bg-white/90 p-4 shadow-sm sm:p-6 dark:border-sky-300/10 dark:bg-white/[0.04]"
     >
-      <div className="flex flex-col gap-5 text-center md:flex-row md:items-center md:justify-between md:text-left">
+      <div className="text-center">
         <div>
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-3 py-1 text-xs font-semibold uppercase text-sky-700 md:mx-0 dark:text-sky-300">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-3 py-1 text-xs font-semibold uppercase text-sky-700 dark:text-sky-300">
             <Sparkles size={14} aria-hidden="true" />
             Verified Certificates
           </div>
@@ -30,41 +28,10 @@ export function CertificateShowcase({ certificates }: CertificateShowcaseProps) 
             Certificate Gallery
           </h3>
         </div>
-
-        <div className="flex justify-center gap-2">
-          <button
-            type="button"
-            title="Scroll left"
-            aria-label="Scroll certificate gallery left"
-            aria-pressed={direction === "left"}
-            onClick={() => setDirection("left")}
-            className={`grid size-10 place-items-center rounded-full border transition ${
-              direction === "left"
-                ? "border-sky-500 bg-sky-500 text-white shadow-lg shadow-sky-500/20"
-                : "border-slate-200 bg-white text-slate-600 hover:border-sky-300 hover:text-sky-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300"
-            }`}
-          >
-            <ChevronLeft size={18} aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            title="Scroll right"
-            aria-label="Scroll certificate gallery right"
-            aria-pressed={direction === "right"}
-            onClick={() => setDirection("right")}
-            className={`grid size-10 place-items-center rounded-full border transition ${
-              direction === "right"
-                ? "border-sky-500 bg-sky-500 text-white shadow-lg shadow-sky-500/20"
-                : "border-slate-200 bg-white text-slate-600 hover:border-sky-300 hover:text-sky-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300"
-            }`}
-          >
-            <ChevronRight size={18} aria-hidden="true" />
-          </button>
-        </div>
       </div>
 
       <div className="certificate-marquee mt-6" aria-label="Certificate gallery">
-        <div className="certificate-track" data-direction={direction}>
+        <div className="certificate-track">
           {loopingCertificates.map((certificate, index) => (
             <a
               key={`${certificate.title}-${index}`}

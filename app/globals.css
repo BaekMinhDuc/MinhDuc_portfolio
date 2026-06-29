@@ -85,10 +85,6 @@ textarea {
   will-change: transform;
 }
 
-.certificate-track[data-direction="right"] {
-  animation-direction: reverse;
-}
-
 .certificate-marquee:hover .certificate-track,
 .certificate-marquee:focus-within .certificate-track {
   animation-play-state: paused;

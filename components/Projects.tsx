@@ -20,7 +20,7 @@ export function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mx-auto mt-12 grid max-w-3xl gap-5"
+          className="mt-12 grid gap-5 lg:grid-cols-2"
         >
           {portfolio.projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Calendar, Layers3 } from "lucide-react";
+import { ArrowUpRight, Calendar, Layers3, Target, UserRoundCheck } from "lucide-react";
 import type { Project } from "@/data/portfolio";
 import { fadeUp } from "./SectionHeader";
 
@@ -38,6 +38,42 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         <p className="mt-5 text-sm leading-7 text-slate-600 dark:text-slate-300">
           {project.description}
         </p>
+
+        <div className="mt-6 grid gap-3 text-left">
+          {project.problem ? (
+            <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-white/[0.04]">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase text-sky-700 dark:text-sky-300">
+                <Target size={14} aria-hidden="true" />
+                Problem
+              </div>
+              <p className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
+                {project.problem}
+              </p>
+            </div>
+          ) : null}
+          {project.contribution ? (
+            <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-white/[0.04]">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase text-blue-700 dark:text-blue-300">
+                <UserRoundCheck size={14} aria-hidden="true" />
+                My Role
+              </div>
+              <p className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
+                {project.contribution}
+              </p>
+            </div>
+          ) : null}
+          {project.result ? (
+            <div className="rounded-lg border border-green-200 bg-green-50 p-4 dark:border-green-400/20 dark:bg-green-400/10">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase text-green-700 dark:text-green-300">
+                <Layers3 size={14} aria-hidden="true" />
+                Result
+              </div>
+              <p className="mt-2 text-sm font-semibold leading-6 text-slate-800 dark:text-slate-100">
+                {project.result}
+              </p>
+            </div>
+          ) : null}
+        </div>
       </div>
       <div className="mt-6 flex flex-wrap justify-center gap-2">
         {tags.map((tag) => (

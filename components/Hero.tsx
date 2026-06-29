@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BriefcaseBusiness, Code2, Download, Mail, PanelsTopLeft } from "lucide-react";
 import Image from "next/image";
 import { portfolio } from "@/data/portfolio";
 import { fadeUp, staggerContainer } from "./SectionHeader";
@@ -28,6 +29,64 @@ export function Hero() {
           >
             {portfolio.personal.roleLine}
           </motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg dark:text-slate-300"
+          >
+            {portfolio.personal.tagline}
+          </motion.p>
+
+          <motion.div
+            variants={fadeUp}
+            className="mt-8 flex flex-wrap items-center justify-center gap-3 xl:justify-start"
+          >
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-xl shadow-slate-950/15 transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
+            >
+              <PanelsTopLeft size={17} aria-hidden="true" />
+              View Projects
+            </a>
+            <a
+              href={portfolio.personal.cv}
+              download
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-5 py-3 text-sm font-semibold text-slate-800 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-100 dark:hover:border-sky-300"
+            >
+              <Download size={17} aria-hidden="true" />
+              Download Resume
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-5 py-3 text-sm font-semibold text-slate-800 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-100 dark:hover:border-sky-300"
+            >
+              <Mail size={17} aria-hidden="true" />
+              Contact Me
+            </a>
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            className="mt-5 flex items-center justify-center gap-3 xl:justify-start"
+          >
+            <a
+              href={portfolio.personal.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open GitHub profile"
+              className="grid size-10 place-items-center rounded-full border border-slate-200 bg-white/70 text-slate-600 transition hover:border-sky-300 hover:text-sky-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:border-sky-300"
+            >
+              <Code2 size={18} aria-hidden="true" />
+            </a>
+            <a
+              href={portfolio.personal.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open LinkedIn profile"
+              className="grid size-10 place-items-center rounded-full border border-slate-200 bg-white/70 text-slate-600 transition hover:border-sky-300 hover:text-sky-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:border-sky-300"
+            >
+              <BriefcaseBusiness size={18} aria-hidden="true" />
+            </a>
+          </motion.div>
         </motion.div>
 
         <motion.div

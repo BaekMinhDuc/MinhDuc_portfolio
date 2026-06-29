@@ -11,7 +11,6 @@ import {
   Mail,
   Mic,
   Network,
-  Phone,
   Radar,
   Rocket,
   ShieldCheck,
@@ -60,6 +59,9 @@ export type Project = {
   role?: string;
   event?: string;
   description: string;
+  problem?: string;
+  contribution?: string;
+  result?: string;
   technical?: string[];
   tools?: string[];
   highlights?: string[];
@@ -104,6 +106,8 @@ export const portfolio = {
     headline: "Ngo Pham Minh Duc",
     mainTitle: "AI Engineer",
     roleLine: "AI Engineer | AI Researcher",
+    tagline:
+      "I build optimized Computer Vision and Speech AI systems for real-time edge deployment.",
     titles: [
       "AI Engineer",
       "AI Researcher",
@@ -170,8 +174,8 @@ export const portfolio = {
       period: "05/2026 - Present",
       type: "Internship",
       description: [
-        "Developed AI solutions for behavior and event analysis using camera-based systems for real-world surveillance applications.",
-        "Optimized and deployed AI models on edge devices to achieve efficient real-time inference with limited computational resources.",
+        "Developed real-time camera-based AI modules for behavior and event analysis, focusing on object detection, face recognition, and edge deployment.",
+        "Optimized AI models with ONNX/TensorRT-oriented deployment workflows for edge devices, improving inference readiness for real-time camera workloads.",
       ],
     },
     {
@@ -181,9 +185,9 @@ export const portfolio = {
       type: "Research",
       description: [
         "Member of the AI research group and AI/ML training team.",
-        "Conducted applied research in Machine Learning and Computer Vision projects.",
-        "Collaborated on algorithm development, model optimization, and AI system prototyping.",
-        "Built and optimized AI models for real-world and AIoT applications with a focus on performance and efficiency.",
+        "Conducted applied research in Machine Learning, Computer Vision, Speech AI, and AIoT prototypes.",
+        "Collaborated on algorithm development, model optimization, and end-to-end AI system prototyping.",
+        "Built edge-oriented research systems including 60-camera monitoring on Jetson AGX Orin and CPU-only multi-camera face detection.",
       ],
     },
   ] satisfies TimelineEntry[],
@@ -196,32 +200,24 @@ export const portfolio = {
   } satisfies Education,
   skillGroups: [
     {
-      title: "Programming Languages",
-      icon: Cpu,
-      skills: ["C/C++", "Python", "CUDA"],
-    },
-    {
-      title: "AI/ML",
+      title: "Core AI",
       icon: BrainCircuit,
-      skills: [
-        "Deep Learning",
-        "Model Optimization",
-        "Face Recognition",
-        "Speech Recognition",
-        "Computer Vision",
-      ],
+      skills: ["Computer Vision", "Speech Recognition", "Face Recognition", "Speaker Diarization"],
     },
     {
-      title: "Frameworks & Tools",
+      title: "Optimization & Deployment",
+      icon: Zap,
+      skills: ["ONNX", "TensorRT", "Pruning", "Quantization", "Knowledge Distillation", "CUDA"],
+    },
+    {
+      title: "Edge / AIoT",
+      icon: Network,
+      skills: ["NVIDIA Jetson", "Multi-camera Systems", "Real-time Inference", "Camera Streams"],
+    },
+    {
+      title: "Programming & Tools",
       icon: Rocket,
-      skills: [
-        "PyTorch",
-        "OpenCV",
-        "ONNX",
-        "TensorRT",
-        "NumPy",
-        "CUDA Toolkit",
-      ],
+      skills: ["Python", "C/C++", "PyTorch", "OpenCV", "NumPy", "CUDA Toolkit"],
     },
   ] satisfies SkillGroup[],
   projects: [
@@ -231,8 +227,50 @@ export const portfolio = {
       role: "AI Engineer",
       description:
         "Optimized object detection and face recognition models for Edge AI deployment, focusing on model compression to improve inference speed, reduce computational cost, and maintain accuracy in real-time multi-camera systems.",
+      problem: "Deploy accurate object detection and face recognition in banking camera workloads under edge-device constraints.",
+      contribution: "Optimized models for compression, export, and deployment readiness across ONNX/TensorRT-oriented pipelines.",
+      result: "Improved deployment efficiency for real-time multi-camera inference while preserving practical recognition accuracy.",
       technical: ["Pruning", "Knowledge Distillation", "Edge AI Optimization"],
       tools: ["PyTorch", "TensorRT", "ONNX", "OpenCV", "NVIDIA Jetson"],
+    },
+    {
+      title: "Vietnamese Voice2Text System",
+      period: "05/2026",
+      role: "AI Researcher",
+      event: "43rd HUST Student Research Conference",
+      description:
+        "Developed a Vietnamese Voice-to-Text system with speaker recognition and speaker diarization for live microphone input and edge-oriented inference.",
+      problem: "Convert Vietnamese multi-speaker speech into text while preserving speaker-level information in real-time usage.",
+      contribution: "Integrated ASR, speaker recognition, diarization, and live microphone processing into a practical speech AI pipeline.",
+      result: "Built a real-time Vietnamese Speech AI prototype for edge-device deployment scenarios.",
+      technical: ["Vietnamese ASR", "Speaker Recognition", "Speaker Diarization", "Real-time Audio"],
+      tools: ["Python", "PyTorch", "Microphone Input", "Edge Inference"],
+    },
+    {
+      title: "Civil Intelligent Sensing System",
+      period: "05/2026",
+      role: "AI Researcher",
+      event: "First Prize - AI Applications Track",
+      description:
+        "Built a real-time urban monitoring system across multiple cameras on Jetson AGX Orin using VLMs, attribute-based person search, and parallel AI pipelines.",
+      problem: "Monitor urban multi-camera scenes and retrieve people/events efficiently on edge hardware.",
+      contribution: "Designed the multi-camera AI pipeline with VLM-assisted analysis, attribute-based person search, and parallel inference.",
+      result: "Achieved 15-20 FPS across 60 cameras on Jetson AGX Orin.",
+      technical: ["VLM", "Person Search", "Parallel AI Pipelines", "60 Cameras", "15-20 FPS"],
+      tools: ["Jetson AGX Orin", "PyTorch", "OpenCV", "TensorRT"],
+    },
+    {
+      title: "CPU-only Multi-camera Face Detection",
+      period: "05/2025",
+      role: "AI Researcher",
+      event: "42nd HUST Student Research Conference",
+      description:
+        "Optimized a multi-camera face detection system by compressing YOLOv3 and improving the video decoding pipeline for CPU-only deployment.",
+      problem: "Run multi-camera face detection without GPU acceleration while keeping practical real-time throughput.",
+      contribution: "Compressed YOLOv3 and optimized the video decoding/inference pipeline for CPU workloads.",
+      result: "Processed 12 camera streams at 10 FPS on CPU-only systems.",
+      technical: ["YOLOv3 Compression", "CPU-only Inference", "12 Camera Streams", "10 FPS"],
+      tools: ["Python", "OpenCV", "YOLOv3", "CPU Deployment"],
     },
   ] satisfies Project[],
   research: [
@@ -321,12 +359,6 @@ export const portfolio = {
       value: "mcminhduc2004@gmail.com",
       href: "mailto:mcminhduc2004@gmail.com",
       icon: Mail,
-    },
-    {
-      label: "Phone",
-      value: "0975780383",
-      href: "tel:0975780383",
-      icon: Phone,
     },
     {
       label: "GitHub",
